@@ -16,12 +16,11 @@ configurations {
     jaxb
 }
 
-
-// tag::wsdl[]
+// Convert definitions in /src/main/resources/*.xsd to Java objects
 task genJaxb {
     ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
     ext.classesDir = "${buildDir}/classes/jaxb"
-    ext.schema = "${rootDir}/src/main/resources"
+    ext.schema = "${rootDir}/src/main/resources/contract.xsd"
 
     outputs.dir classesDir
 
@@ -32,7 +31,8 @@ task genJaxb {
             mkdir(dir: sourcesDir)
             mkdir(dir: classesDir)
 
-            xjc(destdir: sourcesDir, schema: schema) {
+            xjc(destdir: sourcesDir) {
+                schema(dir: "${rootDir}/src/main/resources", includes: "*.xsd")
                 arg(value: "-wsdl")
                 produces(dir: sourcesDir, includes: "**/*.java")
             }
@@ -53,7 +53,6 @@ task genJaxb {
         }
     }
 }
-// end::wsdl[]
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web-services")

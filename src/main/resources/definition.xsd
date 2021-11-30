@@ -1,7 +1,5 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-           xmlns:tns="http://spring.io/guides/spring-soap"
-           targetNamespace="http://spring.io/guides/spring-soap"
-           elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/spring-soap"
+           targetNamespace="http://spring.io/guides/spring-soap" elementFormDefault="qualified">
 
     <xs:element name="getCountryRequest">
         <xs:complexType>
