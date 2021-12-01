@@ -23,13 +23,13 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 		return new ServletRegistrationBean<>(servlet, "/ws/*");
 	}
 
-	@Bean(name = "countries")
-	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema schema) {
+	@Bean(name = "enrollment")
+	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema enrollmentSchema) {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-		wsdl11Definition.setPortTypeName("wsdlPort");
+		wsdl11Definition.setPortTypeName("enrollmentPort");
 		wsdl11Definition.setLocationUri("/ws");
-		wsdl11Definition.setTargetNamespace("http://www.cu.edu/integration");
-		wsdl11Definition.setSchema(schema);
+		wsdl11Definition.setTargetNamespace("http://www.cu.edu/integration/ConstituentEnrlData");
+		wsdl11Definition.setSchema(enrollmentSchema);
 		return wsdl11Definition;
 	}
 

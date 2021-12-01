@@ -1,10 +1,27 @@
 <?xml version='1.0' encoding='utf-8'?>
-<soap-env:Envelope xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"
-                   xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
-  <soap-env:Header/>
+<soap-env:Envelope
+    xmlns:soap-env="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+  <soap-env:Header>
+    <wsse:Security>
+      <wsse:UsernameToken>
+        <wsse:Username>user</wsse:Username>
+        <wsse:Password>password</wsse:Password>
+      </wsse:UsernameToken>
+    </wsse:Security>
+  </soap-env:Header>
   <soap-env:Body>
-    <con:ConstituentEnrollmentData xmlns:con="http://www.cu.edu/integration">
+    <con:ConstituentEnrollmentData xmlns:con="http://www.cu.edu/integration/ConstituentEnrlData">
       <ConstituentId>E15E8B99-6F8C-11e2-96DE-00505691002B</ConstituentId>
+      <HREmplid/>
+      <CSEmplid>810650485</CSEmplid>
+      <ShortName>GRMN 2010 001</ShortName>
+      <SectionId>2167_CUBLD_GRMN_2010_001_13680</SectionId>
+      <LMSType>foo</LMSType>
+      <EnrollmentStatus>E</EnrollmentStatus>
+      <EnrollmentStatusReason>ENRL</EnrollmentStatusReason>
+      <MembershipBusinessRole>Student</MembershipBusinessRole>
+      <MembershipBusinessState>Member</MembershipBusinessState>
     </con:ConstituentEnrollmentData>
   </soap-env:Body>
 </soap-env:Envelope>
