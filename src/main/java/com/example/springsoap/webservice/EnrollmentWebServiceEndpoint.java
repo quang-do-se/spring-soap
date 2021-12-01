@@ -15,7 +15,7 @@ public class EnrollmentWebServiceEndpoint {
 	@ResponsePayload
 	public EnrollmentResponse consumeEnrollment(@RequestPayload ConstituentEnrollmentData enrollmentData) {
 		EnrollmentResponse response = new EnrollmentResponse();
-		response.setMessage(enrollmentData.getSectionId());
+		response.setMessage("SUCCESS");
 		return response;
 	}
 }
