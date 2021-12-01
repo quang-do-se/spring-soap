@@ -47,4 +47,26 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return new SimpleXsdSchema(new ClassPathResource("definition.xsd"));
     }
 
+    @Bean
+    public SimplePasswordValidationCallbackHandler securityCallbackHandler() {
+        SimplePasswordValidationCallbackHandler callbackHandler = new SimplePasswordValidationCallbackHandler();
+        Properties users = new Properties();
+        users.setProperty("admin", "secret");
+        callbackHandler.setUsers(users);
+        return callbackHandler;
+    }
+
+    @Bean
+    public Wss4jSecurityInterceptor securityInterceptor() {
+        Wss4jSecurityInterceptor securityInterceptor = new Wss4jSecurityInterceptor();
+        securityInterceptor.setValidationActions("UsernameToken");
+        securityInterceptor.setValidationCallbackHandler(securityCallbackHandler());
+        return securityInterceptor;
+    }
+
+    @Override
+    public void addInterceptors(List interceptors) {
+        interceptors.add(securityInterceptor());
+    }
+
 }
