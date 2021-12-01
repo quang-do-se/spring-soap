@@ -1,14 +1,12 @@
-package com.example.producingwebservice;
+package com.example.springsoap.webservice;
 
-import com.example.springsoap.webservice.CountryRepository;
+import io.spring.guides.spring_soap.GetCountryRequest;
+import io.spring.guides.spring_soap.GetCountryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-
-import io.spring.guides.spring_soap.GetCountryRequest;
-import io.spring.guides.spring_soap.GetCountryResponse;
 
 @Endpoint
 public class CountryEndpoint {
