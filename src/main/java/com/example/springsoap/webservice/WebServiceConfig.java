@@ -1,8 +1,9 @@
 package com.example.springsoap.webservice;
 
+import java.util.Collections;
 import java.util.List;
-import java.util.Properties;
 
+import org.apache.wss4j.dom.WSConstants;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -45,16 +46,15 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     @Bean
     public SimplePasswordValidationCallbackHandler securityCallbackHandler() {
         SimplePasswordValidationCallbackHandler callbackHandler = new SimplePasswordValidationCallbackHandler();
-        Properties users = new Properties();
-        users.setProperty("admin", "secret");
-        callbackHandler.setUsers(users);
+        callbackHandler.setUsersMap(Collections.singletonMap("admin", "secret"));
         return callbackHandler;
     }
 
     @Bean
     public Wss4jSecurityInterceptor securityInterceptor() {
         Wss4jSecurityInterceptor securityInterceptor = new Wss4jSecurityInterceptor();
-        securityInterceptor.setValidationActions("UsernameToken");
+        securityInterceptor.setSecurementMustUnderstand(false);
+        securityInterceptor.setValidationActions(WSConstants.USERNAME_TOKEN_LN);
         securityInterceptor.setValidationCallbackHandler(securityCallbackHandler());
         return securityInterceptor;
     }
@@ -63,5 +63,4 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     public void addInterceptors(List interceptors) {
         interceptors.add(securityInterceptor());
     }
-
 }
