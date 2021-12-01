@@ -3,7 +3,7 @@
     <soapenv:Header/>
     <soapenv:Body>
         <gs:getCountryRequest>
-            <gs:name>Spain</gs:name>
+            <gs:name>United Kingdom</gs:name>
         </gs:getCountryRequest>
     </soapenv:Body>
 </soapenv:Envelope>

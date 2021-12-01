@@ -1,7 +1,7 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/spring-soap"
            targetNamespace="http://spring.io/guides/spring-soap" elementFormDefault="qualified">
 
-    <xs:element name="getCountryRequest">
+    <xs:element name="countryRequest">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="name" type="xs:string"/>
@@ -9,7 +9,7 @@
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="getCountryResponse">
+    <xs:element name="countryResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="country" type="tns:country"/>

@@ -1,7 +1,7 @@
 package com.example.springsoap.webservice;
 
-import io.spring.guides.spring_soap.GetCountryRequest;
-import io.spring.guides.spring_soap.GetCountryResponse;
+import io.spring.guides.spring_soap.CountryRequest;
+import io.spring.guides.spring_soap.CountryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
@@ -19,10 +19,10 @@ public class CountryEndpoint {
 		this.countryRepository = countryRepository;
 	}
 
-	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "getCountryRequest")
+	@PayloadRoot(namespace = NAMESPACE_URI, localPart = "countryRequest")
 	@ResponsePayload
-	public GetCountryResponse getCountry(@RequestPayload GetCountryRequest request) {
-		GetCountryResponse response = new GetCountryResponse();
+	public CountryResponse getCountry(@RequestPayload CountryRequest request) {
+		CountryResponse response = new CountryResponse();
 		response.setCountry(countryRepository.findCountry(request.getName()));
 
 		return response;
