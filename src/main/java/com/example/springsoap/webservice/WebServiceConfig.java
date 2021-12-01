@@ -24,17 +24,17 @@ public class WebServiceConfig extends WsConfigurerAdapter {
 	}
 
 	@Bean(name = "countries")
-	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema countriesSchema) {
+	public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema schema) {
 		DefaultWsdl11Definition wsdl11Definition = new DefaultWsdl11Definition();
-		wsdl11Definition.setPortTypeName("CountriesPort");
+		wsdl11Definition.setPortTypeName("wsdlPort");
 		wsdl11Definition.setLocationUri("/ws");
-		wsdl11Definition.setTargetNamespace("http://spring.io/guides/spring-soap");
-		wsdl11Definition.setSchema(countriesSchema);
+		wsdl11Definition.setTargetNamespace("http://www.cu.edu/integration");
+		wsdl11Definition.setSchema(schema);
 		return wsdl11Definition;
 	}
 
 	@Bean
-	public XsdSchema countriesSchema() {
+	public XsdSchema enrollmentSchema() {
 		return new SimpleXsdSchema(new ClassPathResource("definition.xsd"));
 	}
 }
