@@ -4,18 +4,18 @@
 
     <xs:element name="ConstituentEnrollmentData">
         <xs:complexType>
-                <xs:sequence>
-                    <xs:element name="ConstituentId" type="xs:string"/>
-                    <xs:element name="HREmplid" type="xs:string"/>
-                    <xs:element name="CSEmplid" type="xs:string"/>
-                    <xs:element name="ShortName" type="xs:string"/>
-                    <xs:element name="SectionId" type="xs:string"/>
-                    <xs:element name="LMSType" type="xs:string"/>
-                    <xs:element name="EnrollmentStatus" type="xs:string"/>
-                    <xs:element name="EnrollmentStatusReason" type="xs:string"/>
-                    <xs:element name="MembershipBusinessRole" type="xs:string"/>
-                    <xs:element name="MembershipBusinessState" type="xs:string"/>
-                </xs:sequence>
+            <xs:sequence>
+                <xs:element name="ConstituentId" type="xs:string"/>
+                <xs:element name="HREmplid" type="xs:string"/>
+                <xs:element name="CSEmplid" type="xs:string"/>
+                <xs:element name="ShortName" type="xs:string"/>
+                <xs:element name="SectionId" type="xs:string"/>
+                <xs:element name="LMSType" type="xs:string"/>
+                <xs:element name="EnrollmentStatus" type="xs:string"/>
+                <xs:element name="EnrollmentStatusReason" type="xs:string"/>
+                <xs:element name="MembershipBusinessRole" type="xs:string"/>
+                <xs:element name="MembershipBusinessState" type="xs:string"/>
+            </xs:sequence>
         </xs:complexType>
     </xs:element>
 
