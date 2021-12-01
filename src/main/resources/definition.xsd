@@ -1,5 +1,6 @@
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://spring.io/guides/spring-soap"
-           targetNamespace="http://spring.io/guides/spring-soap" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://spring.io/guides/spring-soap"
+           targetNamespace="http://spring.io/guides/spring-soap">
 
     <xs:element name="countryRequest">
         <xs:complexType>
@@ -33,4 +34,38 @@
             <xs:enumeration value="PLN"/>
         </xs:restriction>
     </xs:simpleType>
+
+    <xs:element name="ConstituentEnrollmentData">
+        <xs:complexType>
+                <xs:sequence>
+                    <xs:element name="ConstituentId" type="xs:string"/>
+                    <xs:element name="HREmplid" type="xs:string"/>
+                    <xs:element name="CSEmplid" type="xs:string"/>
+                    <xs:element name="ShortName" type="xs:string"/>
+                    <xs:element name="SectionId" type="xs:string"/>
+                    <xs:element name="LMSType" type="xs:string"/>
+                    <xs:element name="EnrollmentStatus" type="xs:string"/>
+                    <xs:element name="EnrollmentStatusReason" type="xs:string"/>
+                    <xs:element name="MembershipBusinessRole" type="xs:string"/>
+                    <xs:element name="MembershipBusinessState" type="xs:string"/>
+                </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+<!--    <xs:element name="enrollmentRequest">-->
+<!--        <xs:complexType>-->
+<!--            <xs:sequence>-->
+<!--                <xs:element name="constituentEnrollmentData" type="tns:constituentEnrollmentData"/>-->
+<!--            </xs:sequence>-->
+<!--        </xs:complexType>-->
+<!--    </xs:element>-->
+
+
+    <xs:element name="enrollmentResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
 </xs:schema>
