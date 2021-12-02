@@ -1,7 +1,7 @@
 package com.example.springsoap.webservice;
 
-import edu.cu.integration.constituentenrldata.ConstituentEnrollmentData;
-import edu.cu.integration.constituentenrldata.EnrollmentResponse;
+import edu.colorado.oit.es.enrollments.ConstituentEnrollmentData;
+import edu.colorado.oit.es.enrollments.EnrollmentResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;

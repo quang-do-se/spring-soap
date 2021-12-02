@@ -23,6 +23,7 @@ sourceSets {
     }
 }
 
+// Auto-generate Java objects from XML schema definition in "src/main/resources/*.xsd"
 task genJaxb {
     ext.sourcesDir = jaxbDir
 
@@ -34,7 +35,8 @@ task genJaxb {
                     classpath: configurations.jaxb.asPath
             mkdir(dir: sourcesDir)
 
-            xjc(destdir: sourcesDir) {
+            // We need to specify package names since the schema and package name are not matched (due to legacy schema structure)
+            xjc(destdir: sourcesDir, package: "edu.colorado.oit.es.enrollments") {
                 schema(dir: "${rootDir}/src/main/resources", includes: "*.xsd")
                 arg(value: "-wsdl")
                 produces(dir: sourcesDir, includes: "**/*.java")
