@@ -3,7 +3,7 @@ package com.example.springsoap.webservice;
 import java.util.Collections;
 import java.util.List;
 
-import org.apache.wss4j.dom.WSConstants;
+import org.apache.wss4j.common.ConfigurationConstants;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -54,7 +54,7 @@ public class WebServiceConfig extends WsConfigurerAdapter {
     public Wss4jSecurityInterceptor securityInterceptor() {
         Wss4jSecurityInterceptor securityInterceptor = new Wss4jSecurityInterceptor();
         securityInterceptor.setSecurementMustUnderstand(false);
-        securityInterceptor.setValidationActions(WSConstants.USERNAME_TOKEN_LN);
+        securityInterceptor.setValidationActions(ConfigurationConstants.USERNAME_TOKEN);
         securityInterceptor.setValidationCallbackHandler(securityCallbackHandler());
         return securityInterceptor;
     }
